@@ -102,6 +102,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 60,
     right: 50,
+    zIndex: 10,
+    elevation: 10,
     backgroundColor: "#2563EB",
     width: 56,
     height: 56,
@@ -111,7 +113,6 @@ const styles = StyleSheet.create({
     shadowColor: "#2563EB",
     shadowOpacity: 0.4,
     shadowRadius: 10,
-    elevation: 6,
   },
 });
 

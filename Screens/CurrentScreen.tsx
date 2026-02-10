@@ -11,6 +11,7 @@ const CurrentScreen = () => {
     return <Text>Context not available</Text>;
   }
   const { weatherData } = context;
+
   if (!weatherData) {
     return <Text>Loading weather...</Text>;
   }
@@ -95,7 +96,6 @@ const CurrentScreen = () => {
           >
             <Image
               source={{
-                // uri: iconUrl,
                 uri: getIconUrl(weatherData.weather[0].icon),
               }}
               style={{ width: 300, height: 150 }}
@@ -110,7 +110,9 @@ const CurrentScreen = () => {
               fontSize: 70,
               color: "white",
               fontWeight: "600",
-              alignContent: "center",
+              alignItems: "center",
+              paddingLeft: 60,
+              paddingBottom: 10,
             }}
           >
             {weatherData.main.temp}°C
