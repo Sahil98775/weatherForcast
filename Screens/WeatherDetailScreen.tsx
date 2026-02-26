@@ -21,6 +21,7 @@ export default function WeatherDetailScreen() {
   const [weather, setWeather] = useState<any>(null);
   const [hourlyData, setHourlyData] = useState<any[]>([]);
   const [favorites, setFavorites] = useState<FavoriteCity[]>([]);
+
   const [isFavorite, setIsFavorite] = useState(false);
   const [dailyData, setDailyData] = useState<any[]>([]);
 
@@ -101,7 +102,7 @@ export default function WeatherDetailScreen() {
 
   return (
     <ScrollView
-      contentContainerStyle={{ padding: 10, backgroundColor: "#D1D5DB" }}
+      contentContainerStyle={{ padding: 10, backgroundColor: "#E0F2F7" }}
       showsVerticalScrollIndicator={true}
     >
       <View
@@ -136,7 +137,7 @@ export default function WeatherDetailScreen() {
       </View>
       <View
         style={{
-          backgroundColor: "#EAF6F8",
+          backgroundColor: "#5EB5C9",
           borderRadius: 20,
           padding: 20,
           marginBottom: 16,
@@ -170,14 +171,16 @@ export default function WeatherDetailScreen() {
                   width: 80,
                 }}
               >
-                <Text>{hour}:00</Text>
+                <Text style={{ fontSize: 18 }}>{hour}:00</Text>
                 <Image
                   source={{
                     uri: `https://openweathermap.org/img/wn/${item.weather[0].icon}.png`,
                   }}
-                  style={{ width: 40, height: 40 }}
+                  style={{ width: 50, height: 50 }}
                 />
-                <Text>{Math.round(item.temp)}°</Text>
+                <Text style={{ fontSize: 18 }}>
+                  {Math.round(item.main.temp)}°C
+                </Text>
               </View>
             );
           }}
@@ -186,7 +189,7 @@ export default function WeatherDetailScreen() {
 
       <View
         style={{
-          backgroundColor: "#EAF6F8",
+          backgroundColor: "#5EB",
           borderRadius: 20,
           padding: 20,
           marginBottom: 16,
@@ -201,7 +204,7 @@ export default function WeatherDetailScreen() {
           NEXT 5 DAYS FORECAST
         </Text>
         <FlatList
-          data={dailyData.slice(0, 7)}
+          data={dailyData.slice(0, 5)}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => {
             const date = new Date(item.dt * 1000).toDateString();
@@ -215,16 +218,18 @@ export default function WeatherDetailScreen() {
                   paddingVertical: 10,
                 }}
               >
-                <Text>{date}</Text>
+                <Text style={{ fontSize: 18 }}>{date}</Text>
 
                 <Image
                   source={{
                     uri: `https://openweathermap.org/img/wn/${item.weather[0].icon}.png`,
                   }}
-                  style={{ width: 40, height: 40 }}
+                  style={{ width: 50, height: 40 }}
                 />
 
-                <Text>{Math.round(item.main.temp)}°C</Text>
+                <Text style={{ fontSize: 20 }}>
+                  {Math.round(item.main.temp)}°C
+                </Text>
               </View>
             );
           }}

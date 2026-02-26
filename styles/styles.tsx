@@ -3,12 +3,12 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   // --------------------------------------------------CurrentScreen ---------------------------------------
   current: {
-    backgroundColor: "#EAF6FA",
+    backgroundColor: "#E0F2F7",
     padding: 16,
   },
 
   cityname: {
-    backgroundColor: "#4A90A4",
+    backgroundColor: "#2C3E50",
     paddingVertical: 18,
     paddingHorizontal: 20,
     borderRadius: 20,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
 
   weather: {
-    backgroundColor: "#8BC17A",
+    backgroundColor: "#8BC",
     borderRadius: 20,
     padding: 20,
     marginBottom: 16,
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
   },
 
   allday: {
-    backgroundColor: "#E3B276",
+    backgroundColor: "#C8E6C9",
+
     borderRadius: 20,
     padding: 20,
     marginBottom: 24,

@@ -127,7 +127,7 @@ export default function SearchScreen() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#EAF6F8" }}>
+    <View style={{ flex: 1, backgroundColor: "#E0F2F7" }}>
       <View style={styles.searchbar}>
         <Ionicons name="search" size={20} color="#9CA3AF" />
         <TextInput
@@ -179,10 +179,11 @@ export default function SearchScreen() {
                 })
               }
               style={{
-                padding: 12,
-                backgroundColor: "#fff",
-                borderRadius: 30,
+                padding: 10,
+                backgroundColor: "#78909C",
+                borderRadius: 20,
                 marginBottom: 15,
+                margin: 10,
               }}
             >
               <Text style={{ fontSize: 30, fontWeight: "600" }}>

@@ -33,16 +33,25 @@ const InitialScreen = () => {
     if (!coords) return;
 
     const fetchWeather = async () => {
-      setLoading(true);
-      const url = `${BASE_URL}?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}&units=metric`;
       try {
+        setLoading(true);
+
+        const url = `${BASE_URL}?lat=${coords.latitude}&lon=${coords.longitude}&appid=${API_KEY}&units=metric`;
+
         const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch weather");
+        }
+
         const data = await response.json();
 
         setWeatherData(data);
+
+        console.log("Navigating to MainTabs");
         navigation.navigate("MainTabs");
       } catch (err) {
-        console.error("Weather error:", err);
+        console.log("Weather error:", err);
       } finally {
         setLoading(false);
       }
@@ -50,6 +59,7 @@ const InitialScreen = () => {
 
     fetchWeather();
   }, [coords]);
+
   return (
     <View
       style={{
